@@ -1,0 +1,32 @@
+{
+  "name": "pdf",
+  "namespace": "rix",
+  "version": "0.1.0",
+  "type": "library",
+  "include": "include",
+  "license": "MIT",
+  "description": "Small PDF generation package for Rix and Vix C++ applications.",
+  "keywords": [
+    "cpp",
+    "pdf",
+    "document",
+    "writer",
+    "text",
+    "table",
+    "drawing",
+    "metadata",
+    "rix",
+    "vix"
+  ],
+  "repository": "https://github.com/rixcpp/pdf",
+  "authors": [
+    {
+      "name": "Gaspard Kirira",
+      "github": "rixcpp"
+    }
+  ],
+  "cmake": {
+    "target": "rix::pdf"
+  },
+  "deps": []
+}

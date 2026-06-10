@@ -56,7 +56,7 @@ int main()
       rixlib::pdf::TextStyle{
           rixlib::pdf::Font::Helvetica,
           12.0F,
-          rixlib::pdf::Color::blue()});
+          rixlib::pdf::Color::blue_color()});
 
   auto saved = pdf.save(doc, "text.pdf");
 

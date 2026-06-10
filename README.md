@@ -12,18 +12,10 @@ The goal is simple:
 int main()
 {
   auto pdf = rixlib::pdf::module();
-
   auto doc = pdf.document();
-
   auto &page = doc.add_page();
-
-  page.text(
-      page.x_left(),
-      page.y_top(),
-      "Hello from rix/pdf");
-
+  page.text(page.x_left(),page.y_top(), "Hello from rix/pdf");
   auto saved = pdf.save(doc, "hello.pdf");
-
   return saved.ok() ? 0 : 1;
 }
 ```
@@ -76,20 +68,11 @@ vix install
 int main()
 {
   auto pdf = rixlib::pdf::module();
-
   auto doc = pdf.document();
-
   auto &page = doc.add_page();
 
-  page.text(
-      page.x_left(),
-      page.y_top(),
-      "Hello from rix/pdf");
-
-  page.text(
-      page.x_left(),
-      page.y_top() - 30.0F,
-      "This PDF was generated from C++.");
+  page.text(page.x_left(),page.y_top(), "Hello from rix/pdf");
+  page.text(page.x_left(),page.y_top() - 30.0F,"This PDF was generated from C++.");
 
   auto saved = pdf.save(doc, "basic.pdf");
 
@@ -142,22 +125,15 @@ pdf.error.is(error, rixlib::pdf::PdfErrorCode::InvalidInput)
 int main()
 {
   auto pdf = rixlib::pdf::module();
-
   auto doc = pdf.document();
 
   doc.set_title("Rix PDF Text Example");
   doc.set_author("Rix");
 
   auto &page = doc.add_page();
-
   auto y = page.y_top();
 
-  y = page.heading(
-      page.x_left(),
-      y,
-      "Rix PDF",
-      1);
-
+  y = page.heading(page.x_left(),y,"Rix PDF",1);
   y -= 10.0F;
 
   page.paragraph(
@@ -165,7 +141,8 @@ int main()
       y,
       page.content_width(),
       "rix/pdf is a small PDF generation library for Rix and Vix.cpp applications. "
-      "It keeps common PDF workflows simple while writer internals stay hidden.");
+      "It keeps common PDF workflows simple while writer internals stay hidden."
+  );
 
   auto saved = pdf.save(doc, "text.pdf");
 
@@ -181,17 +158,9 @@ int main()
 int main()
 {
   auto pdf = rixlib::pdf::module();
-
   auto doc = pdf.document();
-
   auto &page = doc.add_page();
-
-  auto y = page.heading(
-      page.x_left(),
-      page.y_top(),
-      "Project table",
-      1);
-
+  auto y = page.heading(page.x_left(),page.y_top(),"Project table",1);
   y -= 20.0F;
 
   rixlib::pdf::Table table;
@@ -199,27 +168,32 @@ int main()
   table.set_column_widths({
       160.0F,
       160.0F,
-      160.0F});
+      160.0F
+  });
 
   table.add_header({
       "Name",
       "Language",
-      "Project"});
+      "Project"
+  });
 
   table.add_row({
       "Ada",
       "C++",
-      "Rix"});
+      "Rix"
+  });
 
   table.add_row({
       "Gaspard",
       "C++",
-      "Vix.cpp"});
+      "Vix.cpp"
+  });
 
   page.table(
       page.x_left(),
       y,
-      table);
+      table
+  );
 
   auto saved = pdf.save(doc, "table.pdf");
 
@@ -235,16 +209,15 @@ int main()
 int main()
 {
   auto pdf = rixlib::pdf::module();
-
   auto doc = pdf.document();
-
   auto &page = doc.add_page();
 
   auto y = page.heading(
       page.x_left(),
       page.y_top(),
       "Drawing primitives",
-      1);
+      1
+  );
 
   y -= 20.0F;
 
@@ -254,7 +227,8 @@ int main()
       page.x_right(),
       y,
       1.5F,
-      rixlib::pdf::Color::blue_color());
+      rixlib::pdf::Color::blue_color()
+  );
 
   y -= 70.0F;
 
@@ -262,21 +236,24 @@ int main()
       page.x_left(),
       y,
       140.0F,
-      50.0F);
+      50.0F
+  );
 
   page.fill_rect(
       page.x_left() + 170.0F,
       y,
       140.0F,
       50.0F,
-      rixlib::pdf::Color::light_gray());
+      rixlib::pdf::Color::light_gray()
+  );
 
   page.circle(
       page.x_left() + 380.0F,
       y + 25.0F,
       25.0F,
       1.0F,
-      rixlib::pdf::Color::red_color());
+      rixlib::pdf::Color::red_color()
+  );
 
   auto saved = pdf.save(doc, "drawing.pdf");
 

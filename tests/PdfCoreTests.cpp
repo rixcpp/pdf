@@ -58,8 +58,12 @@ int main()
   assert(color.red() == 0.0F);
   assert(color.green() == 0.5F);
   assert(color.blue() == 1.0F);
-  assert(Color::black() == Color{0.0F, 0.0F, 0.0F});
-  assert(Color::white() == Color{1.0F, 1.0F, 1.0F});
+
+  const Color expected_black{0.0F, 0.0F, 0.0F};
+  const Color expected_white{1.0F, 1.0F, 1.0F};
+
+  assert(Color::black() == expected_black);
+  assert(Color::white() == expected_white);
   assert(Color::from_hex(0xFF0000) == Color::red_color());
   assert(Color::from_hex(0x0000FF) == Color::blue_color());
 

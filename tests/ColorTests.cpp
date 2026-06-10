@@ -42,18 +42,18 @@ int main()
   assert(clamped.green() == 0.0F);
   assert(clamped.blue() == 1.0F);
 
-  assert(Color::black() == Color{0.0F, 0.0F, 0.0F});
-  assert(Color::white() == Color{1.0F, 1.0F, 1.0F});
-  assert(Color::red_color() == Color{1.0F, 0.0F, 0.0F});
-  assert(Color::green_color() == Color{0.0F, 0.5F, 0.0F});
-  assert(Color::blue_color() == Color{0.0F, 0.0F, 1.0F});
-  assert(Color::gray() == Color{0.5F, 0.5F, 0.5F});
-  assert(Color::light_gray() == Color{0.85F, 0.85F, 0.85F});
+  assert((Color::black() == Color{0.0F, 0.0F, 0.0F}));
+  assert((Color::white() == Color{1.0F, 1.0F, 1.0F}));
+  assert((Color::red_color() == Color{1.0F, 0.0F, 0.0F}));
+  assert((Color::green_color() == Color{0.0F, 0.5F, 0.0F}));
+  assert((Color::blue_color() == Color{0.0F, 0.0F, 1.0F}));
+  assert((Color::gray() == Color{0.5F, 0.5F, 0.5F}));
+  assert((Color::light_gray() == Color{0.85F, 0.85F, 0.85F}));
 
   assert(Color::from_hex(0x000000) == Color::black());
   assert(Color::from_hex(0xFFFFFF) == Color::white());
   assert(Color::from_hex(0xFF0000) == Color::red_color());
-  assert(Color::from_hex(0x00FF00) == Color{0.0F, 1.0F, 0.0F});
+  assert((Color::from_hex(0x00FF00) == Color{0.0F, 1.0F, 0.0F}));
   assert(Color::from_hex(0x0000FF) == Color::blue_color());
 
   assert(Color::black() != Color::white());
